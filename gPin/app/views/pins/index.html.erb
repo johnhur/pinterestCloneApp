@@ -1,0 +1,10 @@
+<h4>Pins</h4>
+<a href="./pins/new">create new pin</a>
+<ul>
+<% @pins.each do |pin| %>
+    
+    <iframe src="<%= pin.url %>" width = "200px" height = "200px" sandbox="allow-forms allow-scripts"></iframe>
+    <li><a href="<%= pin.url %>"><%= pin.comment %></a><p><%= link_to "show", pin_path(pin) %></p></li><br />
+
+<% end %>
+</ul>
