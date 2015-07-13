@@ -13,6 +13,7 @@ class PinsController < ApplicationController
 		@pin = Pin.create(pin_params)
 
 		if @pin.save
+			flash[:success] = "Successfully Created!"
 			redirect_to pins_path
 		else
 			# show new page again with error messages. 
@@ -27,6 +28,7 @@ class PinsController < ApplicationController
 		@pin.update(pin_params)
 
 		if @pin.save
+			flash[:success] = "Successfully Update!"
 			redirect_to pins_path
 		else
 			# show new page again with error messages. 
@@ -46,7 +48,7 @@ class PinsController < ApplicationController
 	def destroy
 		@pin = Pin.find_by_id(params[:id])
 		@pin.destroy
-		redirect_to pins_path
+		redirect_to pins_path, notice: "Destroyed"
 	end
 
 	private
