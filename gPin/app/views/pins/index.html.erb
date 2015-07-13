@@ -4,7 +4,9 @@
 <% @pins.each do |pin| %>
     
     <iframe src="<%= pin.url %>" width = "200px" height = "200px" sandbox="allow-forms allow-scripts"></iframe>
-    <li><a href="<%= pin.url %>"><%= pin.comment %></a><p><%= link_to "show", pin_path(pin) %></p></li><br />
+    <li><a href="<%= pin.url %>"><%= pin.comment %></a>
+    <p><%= link_to "show", pin_path(pin) %></p>
+    <p><%= link_to "edit", edit_pin_path(pin) %></p></li><br />
 	
 <% end %>
 </ul>

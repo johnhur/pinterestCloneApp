@@ -10,15 +10,29 @@ class PinsController < ApplicationController
 	end
 
 	def create
-		Pin.create(pin_params)
-		redirect_to "/pins"
+		@pin = Pin.create(pin_params)
+
+		if @pin.save
+			redirect_to pins_path
+		else
+			# show new page again with error messages. 
+			@errors = @pin.errors.full_messages
+			render :new
+		end
+
 	end
 
 	def update
 		@pin = Pin.find_by_id(params[:id])
 		@pin.update(pin_params)
 
-		redirect_to '/'
+		if @pin.save
+			redirect_to pins_path
+		else
+			# show new page again with error messages. 
+			@errors = @pin.errors.full_messages
+			render :edit
+		end
 	end
 
 	def edit
