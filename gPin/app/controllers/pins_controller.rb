@@ -32,7 +32,7 @@ class PinsController < ApplicationController
 	def destroy
 		@pin = Pin.find_by_id(params[:id])
 		@pin.destroy
-		redirect_to '/'
+		redirect_to pins_path
 	end
 
 	private
