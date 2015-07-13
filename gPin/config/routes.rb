@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  root '/pins#index'
+  root 'pins#index'
   get '/pins', to: 'pins#index'
   post '/pins', to: 'pins#create'
-  get '/pins/new', to: 'pins#new', as: 'pnew'
-  get '/pins/:id/edit', to: 'pins#edit'
+  get '/pins/new', to: 'pins#new', as: 'new_pin'
+  get '/pins/:id/edit', to: 'pins#edit', as: 'edit_pin'
   get '/pins/:id', to: 'pins#show', as: 'pin'
   put '/pins/:id', to: 'pins#update' 
   patch '/pins/:id', to: 'pins#update'
